@@ -1,6 +1,9 @@
 <template name="MainLayout">
-	{{> Navbar}}
-	<main>
-		{{>yield}}
-	</main>
+    <header>
+        <h1>My University Book</h1>
+        {{> loginButtons}}
+    </header>
+    <main>
+        {{> Template.dynamic template=main}}
+    </main>
 </template>

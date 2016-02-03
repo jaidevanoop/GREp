@@ -11,9 +11,6 @@ Courses = new SimpleSchema({
    name: {
        type: String,
        label: "Course name",
-       autoform: {
-           options: []
-       }
    },
    ranking: {
        type: Number,
@@ -92,10 +89,7 @@ UniversitySchema = new SimpleSchema({
     },
     state: {
         type: String,
-        label: "State",
-        autoform: {
-            options: USS.autoForm
-        }
+        label: "State"
     },
     website: {
         type: String,
@@ -113,6 +107,10 @@ UniversitySchema = new SimpleSchema({
     },
     coursesOffered: {
         type: [Courses],
+    },
+    deadLine: {
+        type: Date,
+        label: "Application Deadline"
     }
 
 });

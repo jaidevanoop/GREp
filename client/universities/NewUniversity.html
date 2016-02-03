@@ -1,0 +1,16 @@
+<template name="NewUniversity">
+    <div class="new-university-container">
+        {{> quickForm collection="Universities"
+        id="insertUniversityForm" type="insert"
+        class="new-university-form" resetOnSuccess=true}}
+    </div>
+</template>
+
+<template name="UpdateUniversity">
+    <div class="new-university-container">
+        {{> quickForm collection="Universities"
+        id="updateUniversityForm" type="insert"
+        class="update-university-form" doc=this
+        buttonContent="Update"}}
+    </div>
+</template>
