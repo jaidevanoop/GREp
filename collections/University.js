@@ -18,9 +18,13 @@ Courses = new SimpleSchema({
        optional: true
    },
    Phd: {
-       type: Boolean,
+       type: String,
        defaultValue: false,
-       optional: true
+       optional: true,
+       allowedValues: ["True", "False"],
+       autoform: {
+           type: 'select-radio-inline'
+       }
    }
 });
 
@@ -89,7 +93,10 @@ UniversitySchema = new SimpleSchema({
     },
     state: {
         type: String,
-        label: "State"
+        label: "State",
+        autoform: {
+            options: USS.autoForm
+        }
     },
     website: {
         type: String,
