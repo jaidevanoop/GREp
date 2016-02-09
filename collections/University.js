@@ -1,7 +1,6 @@
 Universities = new Mongo.Collection('universities');
 opt = {};
 
-
 opt.phd = {
     "T": "True",
     "F": "False"
@@ -58,8 +57,16 @@ opt.states = {
      "Washington"			 :	"WA"   ,
      "West Virginia"		 :	"WV"   ,
      "Wisconsin"			 :	"WI"   ,
-     "Wyoming"				 :  "WY"   
+     "Wyoming"				 :  "WY"
 };
+
+AdminConfig = {
+  adminEmails: ['viditvineet@hotmail.com','jai1396@gmail.com','jaidev.anoop@gmail.com'],
+  collections:
+  {
+      Universities: {}
+  }
+}
 
 Universities.allow({
     insert: function(userId, doc) {
