@@ -1,33 +1,13 @@
 Universities = new Mongo.Collection('universities');
-USS = {};
+opt = {};
 
-Universities.allow({
-    insert: function(userId, doc) {
-        return !!userId;
-    }
-});
 
-Courses = new SimpleSchema({
-   name: {
-       type: String,
-       label: "Course name",
-       autoform: {
-           options: []
-       }
-   },
-   ranking: {
-       type: Number,
-       label: "College Ranking for this course",
-       optional: true
-   },
-   Phd: {
-       type: Boolean,
-       defaultValue: false,
-       optional: true
-   }
-});
+opt.phd = {
+    "T": "True",
+    "F": "False"
+}
 
-USS.autoForm = {
+opt.states = {
     "AL": "Alabama",
     "AK": "Alaska",
     "AZ": "Arizona",
@@ -81,6 +61,32 @@ USS.autoForm = {
     "WY": "Wyoming"
 };
 
+Universities.allow({
+    insert: function(userId, doc) {
+        return !!userId;
+    }
+});
+
+Courses = new SimpleSchema({
+   name: {
+       type: String,
+       label: "Course name",
+   },
+   ranking: {
+       type: Number,
+       label: "College Ranking for this course",
+       optional: true
+   },
+   Phd: {
+       type: String,
+       autoform: {
+           options: opt.phd
+       }
+   }
+});
+
+
+
 UniversitySchema = new SimpleSchema({
     name: {
         type: String,
@@ -94,7 +100,7 @@ UniversitySchema = new SimpleSchema({
         type: String,
         label: "State",
         autoform: {
-            options: USS.autoForm
+            options: opt.states
         }
     },
     website: {
@@ -113,6 +119,10 @@ UniversitySchema = new SimpleSchema({
     },
     coursesOffered: {
         type: [Courses],
+    },
+    deadLine: {
+        type: Date,
+        label: "Application Deadline"
     }
 
 });
