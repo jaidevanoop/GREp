@@ -1,9 +1,10 @@
 <template name="MainLayout">
-    <header>
-        <h1>My University Book</h1>
-        {{> loginButtons}}
-    </header>
-    <main>
-        {{> Template.dynamic template=main}}
-    </main>
+	{{>navbar}}
+	<div class="wrapper">
+		{{>yield}}
+		<div class="push"></div>
+	</div>
+	<div class="footer">
+		{{>footer}}
+	</div>
 </template>
