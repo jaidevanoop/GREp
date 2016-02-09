@@ -94,7 +94,10 @@ UniversitySchema = new SimpleSchema({
     },
     location: {
         type: String,
-        label: "Address"
+        label: "Address",
+        autoform: {
+        	rows:5
+    	}
     },
     state: {
         type: String,
