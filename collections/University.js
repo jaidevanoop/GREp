@@ -158,7 +158,9 @@ UniversitySchema = new SimpleSchema({
     },
     coursesOffered: {
         type: [Courses],
-        optional: true
+
+        optional: true //Temporary
+
     },
     deadLine: {
         type: Date,
