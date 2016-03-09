@@ -8,7 +8,7 @@ if(Meteor.isClient)
 		inputAttributes: function () {
 	      return { 'class': 'easy-search-input', 'placeholder': 'Start searching...' };
 	    },
-		'uni': function(){
+		uni: function(){
 			Meteor.subscribe('universities');
 			return Universities.find({}, {sort: {name: 1}})
 		},
@@ -27,7 +27,7 @@ if(Meteor.isClient)
 		index: function () {
 	    	return UniIndex;
 		},
-		'selectedUni': function(){
+		selectedUni: function(){
 			// var selectedUni = Session.get('selectedUni');
 			// return Universities.findOne(selectedUni);
 			return Session.equals("selectedUni", this.__originalId) ? "selected" : '';
@@ -40,12 +40,13 @@ if(Meteor.isClient)
 
 	Template.searchboard.events({
 		'click .uni': function(){
-			var uniID = this._id;
+			// console.log(this._id);
+			var uniID = this.__originalId;
 			Session.set('selectedUni', uniID);
 		}
 	});
 
-	Template.uni.helpers({
+	Template.univ.helpers({
     selected: function () {
       return Session.equals("selectedUni", this.__originalId) ? "selected" : '';
    //    var selectedUni = Session.get('selectedUni');
@@ -53,7 +54,7 @@ if(Meteor.isClient)
     }
   });
 
-  Template.uni.events({
+  Template.univ.events({
     'click': function () {
       Session.set("selectedUni", this.__originalId);
     }

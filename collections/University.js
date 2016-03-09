@@ -1,6 +1,4 @@
 Universities = new Mongo.Collection('universities');
-<<<<<<< Updated upstream
-=======
 
 UniIndex = new EasySearch.Index({
   engine: new EasySearch.MongoDB({
@@ -30,7 +28,7 @@ UniIndex = new EasySearch.Index({
   }
 });
 
->>>>>>> Stashed changes
+
 opt = {};
 
 opt.phd = {

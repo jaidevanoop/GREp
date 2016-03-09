@@ -21,8 +21,7 @@
 			</div>	
 		</div>	
 	</div>
-<<<<<<< Updated upstream
-=======
+
   {{> searchboard}} 
 </template>
 
@@ -51,7 +50,7 @@
   <ol class="searchboard">
     {{#EasySearch.Each index=index }}
       <!-- <li class="uni {{selectedUni}}">{{name}}</li> -->
-      {{> uni}}
+      {{> univ}}
 
     {{/EasySearch.Each}}
   </ol>
@@ -85,7 +84,7 @@
 
 </template>
 
-<template name="uni">
+<template name="univ">
   <li class="uni {{selected}}">
     <span class="name">{{name}}</span>
   </li> 
@@ -95,7 +94,4 @@
       <span class="category">{{category}}</span><span class="score">{{score}}</span>
     </span>
   </li> -->
-</template>
->>>>>>> Stashed changes
-
 </template>
