@@ -62,7 +62,7 @@ body {
   padding-right: 1.25em;
 }
 
-.uni .selected {
+.uni.selected {
   background-color: #fefff4;
   border-left: #eb5f3a 4px solid;
 }

@@ -9,20 +9,26 @@
       </div>
     </div>    
   </div>
-	<div class="row">
+	<!-- <div class="row">
 		{{> collegeDetails}}
-	</div>
-	<div class="row">
-		<div class="container">
-			<div class="col-sd-12">
-				<br>
-				{{> moreCollegeDetails}}
-				<br>
-			</div>	
-		</div>	
-	</div>
+	</div> -->
+	{{#if details}}
+    <div class="row">
+    	<div class="container">
+    		<div class="col-sd-12">
+    			<br>
+    			{{> moreCollegeDetails}}
+    			<br>
+    		</div>	
+    	</div>	
+    </div>
+  {{/if}}
 
-  {{> searchboard}} 
+  <div class="container">
+    {{> searchboard}}  
+  </div>
+
+
 </template>
 
 <template name="searchboard">
