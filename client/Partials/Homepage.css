@@ -1,0 +1,127 @@
+/** {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 3em 0;
+  padding: 0;
+}
+*/
+.searchboard {
+  border-top: 1px solid #f1f1f1;
+  counter-reset: ol-counter;
+  list-style-type: none;
+  margin: 0 0 1.5em;
+/*  padding: 20;*/
+  /*min-height: 530px;*/
+}
+
+.uni {
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+  padding: .5em 0;
+  position: relative;
+  overflow: hidden;
+  transition: background 300ms ease-out;
+  border-left: 4px solid white;
+}
+
+.uni:before {
+  color: #999;
+  content: counter(ol-counter);
+  counter-increment: ol-counter;
+  display: inline-block;
+  font-weight: 300;
+  line-height: 3em;
+  text-align: center;
+  vertical-align: middle;
+  width: 3em;
+}
+
+.uni .avatar {
+  display: inline-block;
+  margin-right: 1em;
+  vertical-align: middle;
+}
+
+.uni .name {
+  display: inline-block;
+  font-size: 1.25em;
+  font-weight: 300;
+  vertical-align: middle;
+}
+
+.uni .metadata {
+  display: block;
+  float: right;
+  line-height: 2.4em;
+  padding-right: 1.25em;
+}
+
+.uni.selected {
+  background-color: #fefff4;
+  border-left: #eb5f3a 4px solid;
+}
+
+.uni:hover {
+  background-color: #fefff4;
+}
+
+
+
+/*.uni.selectedUni {
+  background-color: #fefff4;
+  border-left: #eb5f3a 4px solid;
+}*/
+
+.easy-search-input {
+    width: 400px;
+    height: 40px;
+    font-size: 15px;
+    padding: 5px 12px;
+    margin-left: 300px;
+    margin-right: auto;
+}
+
+.examples, .count-results {
+    color: grey;
+}
+
+.examples {
+    font-style: italic;
+}
+
+.pagination {
+    list-style-type: none;
+    text-align: center;
+    font-size: 17px;
+    padding: 10px 0 0 0;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pagination .page {
+    display: inline-block;
+    padding: 5px 0;
+    margin: 0 2px;
+    min-width: 25px;
+    cursor: pointer;
+}
+
+.pagination .page.disabled {
+    color: grey;
+}
+
+.pagination .page.current {
+    color: black;
+    font-weight: bold;
+}

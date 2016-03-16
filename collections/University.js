@@ -19,7 +19,7 @@ UniIndex = new EasySearch.Index({
   collection: Universities,
   fields: ['name'],
   defaultSearchOptions: {
-    limit: 3
+    limit: 8
   },
   permission: () => {
     //console.log(Meteor.userId());
@@ -27,6 +27,7 @@ UniIndex = new EasySearch.Index({
     return true;
   }
 });
+
 
 opt = {};
 
