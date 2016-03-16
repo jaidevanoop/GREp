@@ -1,10 +1,16 @@
-Template.Homepage.helpers({
+Template.Search.helpers({
 	details: function(){
 		if(Session.get('collegeSelected'))
 			return true;
 		return false;
 	}
 });
+
+Template.Homepage.events({
+	'click #us': function(){
+		Router.go('/search');
+	}
+})
 
 Template.searchboard.helpers({
 	inputAttributes: function () {

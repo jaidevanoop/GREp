@@ -1,3 +1,22 @@
+<template name="Search">
+ {{#if details}}
+    <div class="row">
+      <div class="container">
+        <div class="col-sd-12">
+          <br>
+          {{> moreCollegeDetails}}
+          <br>
+        </div>  
+      </div>  
+    </div>
+  {{/if}}
+
+  <div class="container">
+    {{> searchboard}}  
+  </div>
+
+</template>
+
 <template name="Homepage">
   <div class="jumbotron">
     <div class="container">
@@ -11,24 +30,19 @@
     </div>    
   </div>
 
-	<!-- <div class="row">
-		{{> collegeDetails}}
-	</div> -->
-	{{#if details}}
-    <div class="row">
-    	<div class="container">
-    		<div class="col-sd-12">
-    			<br>
-    			{{> moreCollegeDetails}}
-    			<br>
-    		</div>	
-    	</div>	
-    </div>
-  {{/if}}
+<div class="row">
+  <br><br>
 
   <div class="container">
-    {{> searchboard}}  
+    <div class="col-sm-6">
+      <button class="btn btn-primary btn-block" id="us">US</button>
+    </div>
+    <div class="col-sm-6">
+         <button class="btn btn-warning btn-block" id="other">Other</button>
+    </div>
   </div>
+</div>
+
 
 
 </template>
