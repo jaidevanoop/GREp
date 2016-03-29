@@ -26,10 +26,13 @@ Template.collegeShow.helpers({
   exampleMapOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
-      // Map initialization options
+		Meteor.subscribe('universities');
+		var id = Session.get('collegeSelected');
+		var uni = Universities.findOne(id);
+		console.log(uni.name);
       return {
-        center: new google.maps.LatLng(-37.8136, 144.9631),
-        zoom: 12
+        center: new google.maps.LatLng(uni.latitude,uni.longitude),
+        zoom: 14,
       };
     }
   }
