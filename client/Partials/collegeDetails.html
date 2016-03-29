@@ -19,22 +19,75 @@
   		<div class="panel-heading">
     		<h3 class="panel-title">{{college.name}}</h3>
   		</div>
-	 	<div class="panel-body">
-	    	{{college.location}}<br>
-	    	{{college.state}}<br>
-	    	{{college.greCutoff}}<br>
-	    	{{college.toeflCutoff}}<br>
-	    	{{college.deadLine}}
-	  	</div>
+	 	<!-- <div class="panel-body">
+	    	Location 	: {{college.location}}<br>
+	    	State 		: {{college.state}}<br>
+	    	GRE Cutoff 	: {{college.greCutoff}}<br>
+	    	Toefl Cutoff: {{college.toeflCutoff}}<br>
+	    	Deadline 	: {{college.deadLine}}
+	  	</div> -->
+	  	<div class="panel-body">
+			<table class="table">
+			<br>
+			<tbody>
+				<tr>
+				<td><div class="header">Location</div></td>
+				<td><div class="divider">:</div></td>
+				<td><div class="info">{{college.location}}</div></td>
+				</tr>
+				<tr>
+				<td><div class="header">State</div></td>
+				<td><div class="divider">:</div></td>
+				<td><div class="info">{{college.state}}</div></td>
+				</tr>
+				<tr>
+				<td><div class="header">GRE Cutoff</div></td>
+				<td><div class="divider">:</div></td>
+				<td><div class="info">{{college.greCutoff}}</div></td>
+				</tr>
+				<tr>
+				<td><div class="header">Toefl Cutoff</div></td>
+				<td><div class="divider">:</div></td>
+				<td><div class="info">{{college.toeflCutoff}}</div></td>
+				</tr>
+				<tr>
+				<td><div class="header">Deadline</div></td>
+				<td><div class="divider">:</div></td>
+				<td><div class="info">{{college.deadLine}}</div></td>
+				</tr>
+
+			</tbody>
+			</table>
+		</div>
 	</div>
 	<div class="panel-footer">
-		{{college.website}}
+		<a href="http://{{college.website}}" target="_blank">{{college.website}}</a>
 		<a href="college/{{college._id}}" class="pull-right">VIEW MORE</a>
 	</div>
 </template>
 
 <template name="collegeShow">
-	{{name}}
+	<!-- {{name}}
 	<br><br>
-	<img src="{{imageLink}}" alt="{{name}}">
+	<img src="{{imageLink}}" alt="{{name}}"> -->
+	<div class="blended_grid">
+		<div class="VMCollegePicture">
+				<img src="{{imageLink}}" alt="{{name}}">
+		</div>
+		<div class="VMMaps">
+			two
+		</div>
+		<div class="VMCollegeName">
+			three
+		</div>
+		<div class="VMLocation">
+			four
+		</div>
+		<div class="VMCollegeScores">
+			five
+		</div>
+		<div class="VMCollegeCourses">
+			six
+		</div>
+	</div>
 </template>
