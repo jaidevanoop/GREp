@@ -1,9 +1,10 @@
 <template name="Search">
  <div class="container">
+ <br><br>
    {{> searchboard}}  
- </div>
+  </div>
  {{#if details}}
-    <div class="row">
+      <div class="row">
       <div class="container">
         <div class="col-sm-12">
           <br>
@@ -12,6 +13,8 @@
         </div>  
       </div>  
     </div>
+  <!-- {{else}}
+    <br><br><br><br><br><br><br><br><br><br><br><br> -->
   {{/if}}
 </template>
 
@@ -33,10 +36,14 @@
 
   <div class="container">
     <div class="col-sm-6">
-      <button class="btn btn-primary btn-block" id="us">US</button>
+      <div align="center">
+        <button class="buttonUS" id="us"></button>
+      </div>
     </div>
     <div class="col-sm-6">
-         <button class="btn btn-warning btn-block" id="other">Other</button>
+      <div align="center">
+         <button class="buttonOther" id="other">Other</button>
+       </div>
     </div>
   </div>
 </div>
@@ -48,10 +55,12 @@
 <template name="searchboard">
   <div align="center">
       {{> EasySearch.Input  index=index attributes=inputAttributes}}
+
   </div>  
   {{#EasySearch.IfInputEmpty index=index }}
-    <div class="padded examples">For example "Mass"</div>
+    <div class="padded examples"><br>For example "Mass"</div>
   {{else}}
+  <br><br>
     {{#if resultsCount}}
       <div class="padded count-results">{{resultsCount}} results found.</div>
     {{/if}}
@@ -109,6 +118,10 @@
 <template name="univ">
   <li class="uni {{selected}}">
     <span class="name">{{name}}</span>
+    <span class="metadata">
+      <span class="grescore">{{greCutoff}}</span>
+      <span class="toeflscore">{{toeflCutoff}}</span>
+    </span>
   </li> 
   
     <!-- <span class="name">{{name}}</span>

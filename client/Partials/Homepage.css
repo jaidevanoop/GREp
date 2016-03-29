@@ -41,15 +41,15 @@ body {
   vertical-align: middle;
   width: 3em;
 }
-
+/*
 .uni .avatar {
   display: inline-block;
   margin-right: 1em;
   vertical-align: middle;
-}
+}*/
 
 .uni .name {
-  display: inline-block;
+  /*display: inline-block;*/
   font-size: 1.25em;
   font-weight: 300;
   vertical-align: middle;
@@ -60,6 +60,22 @@ body {
   float: right;
   line-height: 2.4em;
   padding-right: 1.25em;
+}
+
+.uni .grescore {
+  color: #333;
+  font-size: 1.25em;
+  font-weight: 600;
+  /*margin-right: 2em;*/
+  position: absolute;
+  right: 100px;
+}
+
+.uni .toeflscore {
+  font-size: 1em;
+  margin-right: 1em;
+  vertical-align: top;
+  color: #333;
 }
 
 .uni.selected {
@@ -123,3 +139,71 @@ body {
     color: black;
     font-weight: bold;
 }
+
+.buttonUS {
+   border-top: 1px solid #949388;
+   background: #6e6e6e;
+   
+   background-image: url(images/US.gif);
+   padding: 20px 40px;
+   -webkit-border-radius: 21px;
+   -moz-border-radius: 21px;
+   border-radius: 21px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   color: #cccccc;
+   font-size: 24px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   height: 160px;
+   width: 210px;
+   }
+.buttonUS:hover {
+   border-top-color: #21211f;
+   /*background: #21211f;*/
+   color: #f5f0f5;
+   opacity: 0.9;
+   border-width: 3px;
+   }
+.buttonUS:active {
+   border-top-color: #454545;
+   background: #454545;
+   }
+
+.buttonOther {
+   border-top: 1px solid #949388;
+   background: #6e6e6e;
+   background: -webkit-gradient(linear, left top, left bottom, from(#545453), to(#6e6e6e));
+   background: -webkit-linear-gradient(top, #545453, #6e6e6e);
+   background: -moz-linear-gradient(top, #545453, #6e6e6e);
+   background: -ms-linear-gradient(top, #545453, #6e6e6e);
+   background: -o-linear-gradient(top, #545453, #6e6e6e);
+   background-image: url(images/flag_world.png);
+   padding: 20px 40px;
+   -webkit-border-radius: 21px;
+   -moz-border-radius: 21px;
+   border-radius: 21px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #000000;
+   font-size: 24px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   height: 160px;
+   width: 210px;
+   }
+.buttonOther:hover {
+   border-top-color: #21211f;
+   opacity: 0.9;
+   border-width: 3px;
+   color: #000000;
+   }
+.buttonOther:active {
+   border-top-color: #454545;
+   background: #454545;
+   }
