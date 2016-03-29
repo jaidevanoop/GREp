@@ -50,15 +50,24 @@
 </template>
 
 <template name="AdvSearch">
-	<div class="col-sm-5">
-		<div id="slider">
-		</div>
-		<input id="value-input-low">
-		<input id="value-input-high">
-	</div>
-	{{#each filterGRE}}
-	{{name}}
-	{{/each}}
+	<div class="row">
+   <div class="col-sm-5">
+    <div id="slider">
+    </div>
+    <input id="value-input-low">
+    <input id="value-input-high">
+   </div> 
+  </div>
+	<div class="row">
+    <div class="container">
+      {{#each filterGRE}}
+         <br><br>
+
+         {{name}}
+
+      {{/each}} 
+    </div>
+  </div>
 </template>
 
 <template name="searchboard">

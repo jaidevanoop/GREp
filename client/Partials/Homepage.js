@@ -14,7 +14,17 @@ Template.AdvSearch.helpers({
 		Meteor.subscribe('universities');
 		var value1 = Session.get('filterHighGRE');
 		var value2 = Session.get('filterLowGRE');
-		return Universities.find({greCutoff: {$gt: value2, $lt: value1}}, {sort: {greCutoff: 1}});
+		var test1 = parseInt(value1,10);
+		var test2 = parseInt(value2,10);
+		var exp1 = { $gte : test2 , $lte : test1};
+		console.log(exp1);
+		var exp = {greCutoff: exp1};
+		console.log(exp);
+		var list = Universities.find(exp, {sort: {greCutoff: 1}});
+		console.log(list.fetch());
+		return list;
+
+		//"greCutoff": {"$lt" : value2 , "$gt" : value1}
 	}
 
 });
