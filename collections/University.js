@@ -166,8 +166,11 @@ UniversitySchema = new SimpleSchema({
     deadLine: {
         type: Date,
         label: "Application Deadline"
+    },
+    imageLink: {
+        type: String,
+        label: "Image Source"
     }
-
 });
 
 Universities.attachSchema( UniversitySchema );
