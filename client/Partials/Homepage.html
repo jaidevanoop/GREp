@@ -1,8 +1,11 @@
 <template name="Search">
+ <div class="container">
+   {{> searchboard}}  
+ </div>
  {{#if details}}
     <div class="row">
       <div class="container">
-        <div class="col-sd-12">
+        <div class="col-sm-12">
           <br>
           {{> moreCollegeDetails}}
           <br>
@@ -10,11 +13,6 @@
       </div>  
     </div>
   {{/if}}
-
-  <div class="container">
-    {{> searchboard}}  
-  </div>
-
 </template>
 
 <template name="Homepage">
@@ -48,7 +46,9 @@
 </template>
 
 <template name="searchboard">
-  {{> EasySearch.Input  index=index attributes=inputAttributes}}
+  <div align="center">
+      {{> EasySearch.Input  index=index attributes=inputAttributes}}
+  </div>  
   {{#EasySearch.IfInputEmpty index=index }}
     <div class="padded examples">For example "Mass"</div>
   {{else}}
