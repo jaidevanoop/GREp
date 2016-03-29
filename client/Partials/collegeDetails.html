@@ -19,13 +19,6 @@
   		<div class="panel-heading">
     		<h3 class="panel-title">{{college.name}}</h3>
   		</div>
-	 	<!-- <div class="panel-body">
-	    	Location 	: {{college.location}}<br>
-	    	State 		: {{college.state}}<br>
-	    	GRE Cutoff 	: {{college.greCutoff}}<br>
-	    	Toefl Cutoff: {{college.toeflCutoff}}<br>
-	    	Deadline 	: {{college.deadLine}}
-	  	</div> -->
 	  	<div class="panel-body">
 			<table class="table">
 			<br>
@@ -72,22 +65,83 @@
 	<img src="{{imageLink}}" alt="{{name}}"> -->
 	<div class="blended_grid">
 		<div class="VMCollegePicture">
-				<img src="{{imageLink}}" alt="{{name}}">
+			<img src="{{imageLink}}" alt="{{name}}">
 		</div>
 		<div class="VMMaps">
 			{{> googleMap name="exampleMap" options=exampleMapOptions}}
 		</div>
 		<div class="VMCollegeName">
-			three
+			<div class="CollegeNameText" align="center" >
+				<span class="CollegeNameTextSpan">
+				{{name}}
+				</span>
+			</div>
 		</div>
 		<div class="VMLocation">
-			four
+			<div class="CollegeNameText" align="center" >
+				<span class="CollegeAddressTextSpan">
+				{{location}}<br>{{state}}
+				</span>
+			</div>			
 		</div>
 		<div class="VMCollegeScores">
-			five
+			<div class="VMscoreanddeadline">
+				<span class="CollegeScoreTextSpan">
+				GRE Score: {{greCutoff}}
+				</span>
+			</div>
+			<div class="VMscoreanddeadline">
+				<span class="CollegeScoreTextSpan">
+				Toefl Score: {{toeflCutoff}}
+				</span>
+			</div>
+			<div class="VMscoreanddeadline">
+				<span class="CollegeScoreTextSpan">
+				Application Deadline: {{deadLine}}
+				</span>
+			</div>
 		</div>
+
+
+		{{#if courses}}
 		<div class="VMCollegeCourses">
-			six
+			<div class="panel panel-primary">
+				
+				<div class="row">
+				<div class="container">
+					<div class="panel-heading">
+			    		<h3 class="panel-title">Courses Offered</h3>
+			  		</div>
+					<div class="panel-body">
+						<table class="table table-hover" >
+						<thead >
+							<tr>
+								<th>Course Name</th>
+								<th>Ranking</th>
+								<th>PhD</th>
+							</tr>
+						</thead>
+						{{#each coursesOffered}}
+						<tbody >
+							<tr>
+							<td>{{name}}</td>
+							<td>{{ranking}}</td>
+							<td>{{Phd}}</td>
+							</tr>
+							
+						</tbody>
+						{{/each}}
+						</table>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+		
+		<div class="VMCommentThread">
+			seven
 		</div>
 	</div>
 </template>

@@ -56,3 +56,16 @@ Template.moreCollegeDetails.helpers({
 		return Universities.findOne(id);
 	}
 });
+
+
+Template.collegeShow.helpers({
+	'courses': function(){
+		Meteor.subscribe('universities');
+		var id = Session.get('collegeSelected');
+		
+		if(Universities.findOne(id).coursesOffered){
+			return true;
+		}
+		return false;
+	}
+});
