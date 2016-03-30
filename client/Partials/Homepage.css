@@ -123,6 +123,22 @@ border-left: #eb5f3a 4px solid;
 	user-select: none;
 }
 
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+.col-fixed {
+    /* custom width */
+    width:400px;
+}
+
 #slider {
 	margin: 0 auto 30px;
 }

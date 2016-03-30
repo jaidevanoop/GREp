@@ -50,24 +50,26 @@
 </template>
 
 <template name="AdvSearch">
+	<br>
+	<div class="container">
+		<div class="row row-centered">
+			<div class="col-xs-6 col-centered col-fixed">
+				<h4 align="center">GRE Score</h4>
+					<div id="slider">
+					</div>
+					<input id="value-input-low">
+					<input id="value-input-high">
+			</div>
+		</div>
+	</div>
+	<br>
 	<div class="row">
-   <div class="col-sm-5">
-    <div id="slider">
-    </div>
-    <input id="value-input-low">
-    <input id="value-input-high">
-   </div> 
-  </div>
-	<div class="row">
-    <div class="container">
-      {{#each filterGRE}}
-         <br><br>
-
-         {{name}}
-
-      {{/each}} 
-    </div>
-  </div>
+		<div class="container">
+			{{#each filterGRE}}
+			{{> univ}}
+			{{/each}}
+		</div>
+	</div>
 </template>
 
 <template name="searchboard">
