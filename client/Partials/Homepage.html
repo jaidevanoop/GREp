@@ -13,8 +13,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- {{else}}
-	<br><br><br><br><br><br><br><br><br><br><br><br> -->
 	{{/if}}
 </template>
 
@@ -65,11 +63,25 @@
 	<br>
 	<div class="row">
 		<div class="container">
-			{{#each filterGRE}}
-			{{> univ}}
-			{{/each}}
+			<ol class="searchboard">
+      {{#each filterGRE}}
+        {{> univ2}}
+      {{/each}}   
+      </ol>
 		</div>
 	</div>
+    {{#if details}}
+  <div class="row">
+    <div class="container">
+      <div class="col-sm-12">
+        <br>
+        {{> moreCollegeDetails}}
+        <br>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+
 </template>
 
 <template name="searchboard">
@@ -148,4 +160,14 @@
 	<span class="category">{{category}}</span><span class="score">{{score}}</span>
 </span>
 </li> -->
+</template>
+
+<template name="univ2">
+  <li class="uni {{selected}}">
+    <span class="name">{{name}}</span>
+    <span class="metadata">
+      <span class="grescore">{{greCutoff}}</span>
+      <span class="toeflscore">{{toeflCutoff}}</span>
+    </span>
+  </li>
 </template>

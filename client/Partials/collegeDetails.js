@@ -9,7 +9,6 @@ Template.collegeShow.helpers({
 		Meteor.subscribe('universities');
 		var id = Session.get('collegeSelected');
 		var uni = Universities.findOne(id);
-		console.log(uni.name);
       return {
         center: new google.maps.LatLng(uni.latitude,uni.longitude),
         zoom: 14,
@@ -33,7 +32,7 @@ Template.collegeShow.onCreated(function() {
 Template.moreCollegeDetails.helpers({
 	'college': function(){
 		Meteor.subscribe('universities');
-		var id = Session.get('collegeSelected');
+		var id = Session.get('selectedUni');
 		return Universities.findOne(id);
 	}
 });

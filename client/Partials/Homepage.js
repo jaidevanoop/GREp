@@ -17,16 +17,22 @@ Template.AdvSearch.helpers({
 		var test1 = parseInt(value1,10);
 		var test2 = parseInt(value2,10);
 		var exp1 = { $gte : test2 , $lte : test1};
-		console.log(exp1);
 		var exp = {greCutoff: exp1};
-		console.log(exp);
 		var list = Universities.find(exp, {sort: {greCutoff: 1}});
-		console.log(list.fetch());
 		return list;
-
-		//"greCutoff": {"$lt" : value2 , "$gt" : value1}
+	},
+	details: function(){
+		if(Session.get('selectedUni'))
+			return true;
+		return false;
 	}
+});
 
+Template.AdvSearch.events({
+	'click .uni': function() {
+		var uniID = this._id;
+		Session.set('selectedUni', uniID);
+	}
 });
 
 Template.AdvSearch.rendered = function () {
@@ -85,35 +91,13 @@ Template.searchboard.helpers({
 		Meteor.subscribe('universities');
 		return Universities.find({}, {sort: {name: 1}})
 	},
-	// 'selectedClass': function(){
-	// 	var playerID = this._id;
-	// 	var selectedPlayer = Session.get('selectedPlayer');
-	// 	if(selectedPlayer == playerID){
-	// 		return "selected"
-	// 	}
-
-	// },
-	// 'showSelectedPlayer': function(){
-	// 	var selectedPlayer = Session.get('selectedPlayer');
-	// 	return Universities.findOne(selectedPlayer);
-	// },
 	index: function () {
     	return UniIndex;
 	},
-	selectedUni: function(){
-		// var selectedUni = Session.get('selectedUni');
-		// return Universities.findOne(selectedUni);
-		return Session.equals("selectedUni", this.__originalId) ? "selected" : '';
-	},
-	// selectedName: function () {
- //      var player = UniIndex.config.mongoCollection.findOne({ __originalId: Session.get("selectedPlayer") });
- //      return player && player.name;
- //    },
 });
 
 Template.searchboard.events({
 	'click .uni': function(){
-		// console.log(this._id);
 		var uniID = this.__originalId;
 		Session.set('selectedUni', uniID);
 		Session.set('collegeSelected',uniID);
@@ -121,15 +105,13 @@ Template.searchboard.events({
 });
 
 Template.univ.helpers({
-selected: function () {
-  return Session.equals("selectedUni", this.__originalId) ? "selected" : '';
-//    var selectedUni = Session.get('selectedUni');
-		// return Universities.findOne(selectedUni);
-}
+	selected: function () {
+	  return Session.equals("selectedUni", this.__originalId) ? "selected" : '';
+	}
 });
 
-Template.univ.events({
-'click': function () {
-  Session.set("selectedUni", this.__originalId);
-}
+Template.univ2.helpers({
+	selected: function () {
+	  return Session.equals("selectedUni", this._id) ? "selected" : '';
+	}
 });
