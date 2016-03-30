@@ -107,7 +107,7 @@ Universities.allow({
 Courses = new SimpleSchema({
    name: {
        type: String,
-       label: "Course name",       
+       label: "Course name",
    },
    ranking: {
        type: Number,
@@ -135,6 +135,18 @@ UniversitySchema = new SimpleSchema({
         autoform: {
         	rows:5
     	}
+    },
+	latitude: {
+        type: Number,
+		decimal: true,
+        label: "Latitude",
+        optional: false
+    },
+	longitude: {
+        type: Number,
+		decimal: true,
+        label: "Longitude",
+        optional: false
     },
     state: {
         type: String,
