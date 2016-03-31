@@ -1,19 +1,21 @@
 <template name="navbar">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">GREp</a>
-      </div>
-      <div>
-        <ul class="nav navbar-nav">
-          <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
-          <li><div class="sign_in_button"> {{> atNavButton}}</div></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-              <li><a href="/admin" class="admin"><span class="glyphicon glyphicon-lock"></span> Admin</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">GREp</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+					<li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+					<li><a href="/search"><span class="glyphicon glyphicon-question-sign"></span> Search</a></li>
+					<li><a href="/advsearch"><span class="glyphicon glyphicon-question-sign"></span> Advanced Search</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>{{> atNavButton}}</li>
+					<li><a href="/admin" class="admin"><span class="glyphicon glyphicon-lock"></span> Admin</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 </template>
