@@ -6,7 +6,6 @@ Template.collegeShow.helpers({
   exampleMapOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
-		// Meteor.subscribe('universities');
 		var id = this._id;
 		var uni = Universities.findOne(id);
       return {
@@ -16,7 +15,6 @@ Template.collegeShow.helpers({
     }
   },
   'courses': function(){
-		// Meteor.subscribe('universities');
 		var id = this._id;
 		if(Universities.findOne(id).coursesOffered){
 			return true;
