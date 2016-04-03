@@ -30,7 +30,7 @@
 				<tr>
 				<td><div class="header">Deadline</div></td>
 				<td><div class="divider">:</div></td>
-				<td><div class="info">{{college.deadLine}}</div></td>
+				<td><div class="info">{{showDate college.deadLine}}</div></td>
 				</tr>
 
 			</tbody>
@@ -81,7 +81,8 @@
 			</div>
 			<div class="VMscoreanddeadline">
 				<span class="CollegeScoreTextSpan">
-				Application Deadline: {{deadLine}}
+				Application Deadline: {{showDate deadLine}}
+				<!-- Application Deadline: {{showDate 'Thu Dec 15 2016 05:30:00 GMT+0530 (IST)'}} -->
 				</span>
 			</div>
 		</div>
