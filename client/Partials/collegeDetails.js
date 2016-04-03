@@ -33,6 +33,22 @@ Template.collegeShow.helpers({
 			}	
 		};		
 		return false;
+	},
+	'like': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		var obj = Universities.findOne(id).like;
+		for (var i = 0; i < obj.length; i++) {
+			if(obj[i] == user_id){
+				return true;
+			}	
+		};		
+		return false;
+	},
+	'likeCount': function(){
+		var id = this._id;
+		var obj = Universities.findOne(id).like;
+		return obj.length;
 	}
 });
 
@@ -47,6 +63,16 @@ Template.collegeShow.events({
 		var user_id = Meteor.userId();
 		Universities.update({_id: id},{$pull: { bookmark: user_id}});
 	},
+	'click #like': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		Universities.update({_id: id},{$addToSet: { like: user_id}});
+	},
+	'click #unlike': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		Universities.update({_id: id},{$pull: { like: user_id}});
+	}
 });
 
 Template.collegeShow.onCreated(function() {

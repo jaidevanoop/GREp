@@ -132,6 +132,14 @@
 				{{else}}			
 					<button id="mark">Mark</button>
 				{{/if}}
+				<br>
+				{{#if like}}
+					<button id="unlike">Unlike</button>
+				{{else}}			
+					<button id="like">Like</button>
+				{{/if}}
+				<br>
+				Likes - {{likeCount}}
 		</div>
 	</div>
 </template>

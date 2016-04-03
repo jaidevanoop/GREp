@@ -182,6 +182,12 @@ UniversitySchema = new SimpleSchema({
              type: 'hidden'
            }
     },
+    like: {
+        type: [String],
+        autoform: {
+             type: 'hidden'
+           }
+    },
     latitude: {
         type: Number,
         decimal: true,
