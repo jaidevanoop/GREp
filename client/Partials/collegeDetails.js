@@ -14,7 +14,16 @@ Template.collegeShow.helpers({
         zoom: 14,
       };
     }
-  }
+  },
+  'courses': function(){
+		Meteor.subscribe('universities');
+		var id = Session.get('collegeSelected');
+
+		if(Universities.findOne(id).coursesOffered){
+			return true;
+		}
+		return false;
+	}
 });
 
 Template.collegeShow.onCreated(function() {
@@ -37,15 +46,3 @@ Template.moreCollegeDetails.helpers({
 	}
 });
 
-
-Template.collegeShow.helpers({
-	'courses': function(){
-		Meteor.subscribe('universities');
-		var id = Session.get('collegeSelected');
-
-		if(Universities.findOne(id).coursesOffered){
-			return true;
-		}
-		return false;
-	}
-});

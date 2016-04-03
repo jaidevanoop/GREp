@@ -32,8 +32,8 @@ UniIndex = new EasySearch.Index({
 opt = {};
 
 opt.phd = {
-    "T": "True",
-    "F": "False"
+    "Yes": "True",
+    "No": "False"
 }
 
 opt.states = {
@@ -137,18 +137,7 @@ UniversitySchema = new SimpleSchema({
         	rows:5
     	}
     },
-	latitude: {
-        type: Number,
-		decimal: true,
-        label: "Latitude",
-        optional: false
-    },
-	longitude: {
-        type: Number,
-		decimal: true,
-        label: "Longitude",
-        optional: false
-    },
+	
     state: {
         type: String,
         label: "State",
@@ -183,6 +172,18 @@ UniversitySchema = new SimpleSchema({
     imageLink: {
         type: String,
         label: "Image Source"
+    },
+    latitude: {
+        type: Number,
+    decimal: true,
+        label: "Latitude",
+        optional: false
+    },
+  longitude: {
+        type: Number,
+    decimal: true,
+        label: "Longitude",
+        optional: false
     }
 });
 
