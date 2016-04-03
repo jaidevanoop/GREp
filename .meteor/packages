@@ -43,3 +43,6 @@ twbs:bootstrap
 yogiben:admin
 easy:search
 dburles:google-maps
+useraccounts:core
+useraccounts:bootstrap
+useraccounts:iron-routing

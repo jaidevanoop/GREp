@@ -95,7 +95,8 @@ AdminConfig = {
   collections:
   {
       Universities: {}
-  }
+  },
+  skin: 'black'
 }
 
 Universities.allow({
