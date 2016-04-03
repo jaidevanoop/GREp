@@ -13,7 +13,10 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li>{{> atNavButton}}</li>
-					<li><a href="/admin" class="admin"><span class="glyphicon glyphicon-lock"></span> Admin</a></li>
+					<!-- <li><a href="/admin" class="admin"><span class="glyphicon glyphicon-lock"></span> Admin</a></li> -->
+					{{#if isInRole 'admin'}}
+						<li><a href="/admin" class="admin"><span class="glyphicon glyphicon-lock"></span> Admin</a></li>
+					{{/if}}
 				</ul>
 			</div>
 		</div>
