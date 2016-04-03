@@ -126,7 +126,12 @@
 
 		
 		<div class="VMCommentThread">
-			seven
+			
+				{{#if bookmark}}
+					<button id="unmark">Unmark</button>
+				{{else}}			
+					<button id="mark">Mark</button>
+				{{/if}}
 		</div>
 	</div>
 </template>
