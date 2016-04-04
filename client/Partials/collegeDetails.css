@@ -33,7 +33,7 @@ border-style: solid;
 border-width: 2px;
 border-color: black;
 }
-.VMCollegeName{
+/*.VMCollegeName{
 float : left;
 clear : none;
 height : 200px;
@@ -55,6 +55,52 @@ text-align: center;
 }
 .CollegeNameTextSpan{
 	display: inline-block;
+    vertical-align: middle;
+    line-height: 3vw;
+    color: white;
+    font-weight: bold;
+    font-size: 2.75vw;
+}*/
+
+.VMCollegeName{
+float : left;
+clear : none;
+height : 200px;
+width : 60%;
+border-width: 2px;
+border-color: black;
+border-style: solid;
+background-color: #337ab7;
+overflow: hidden;
+text-align: center;
+}
+.CollegeNameText{
+    height: 150px;
+    line-height: 150px;
+     
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.CollegeNameTextSpan{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 3vw;
+    color: white;
+    font-weight: bold;
+    font-size: 2.75vw;
+}
+
+.BookmarkIcon{
+    height: 50px;
+    line-height: 50px;     
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: -50px;
+}
+
+.BookmarkIconSpan{
+    display: inline-block;
     vertical-align: middle;
     line-height: 3vw;
     color: white;
@@ -126,6 +172,11 @@ border-width: 2px;
 border-color: black;
 border-style: solid;
 }
+
+.VMCollegeCourses .panel{
+    margin-bottom: 0px;
+}
+
 .VMCommentThread{
 clear : none;
 float : left;
@@ -135,4 +186,60 @@ height : 700px;
 border-width: 2px;
 border-color: black;
 border-style: solid;
+}
+
+.fa:hover{
+    cursor: pointer; cursor: hand;
+    
+}
+
+.fa{
+    /*font-size: 25px;*/
+    font-size: 40px;
+}
+
+/*
+color codes:
+dark blue 00008B
+gold FFD700
+goldenrod DAA520
+brown eac086
+dark brown 8B4513
+blue 337ab7
+*/
+
+.fa-bookmark{    
+    color: #FFD700;
+    /*outline: red;*/
+}
+
+.fa-bookmark:hover{
+    color: #DAA520;
+}
+
+.fa-bookmark-o{
+    color: white;
+    vertical-align: bottom;
+    position: relative;
+    align-content: right;
+}
+
+.fa-bookmark-o:hover{
+    color: #00008B;   
+}
+
+.fa-thumbs-up{
+    color: rgb(247,247,247);
+}
+
+.fa-thumbs-o-up{
+    color: white;
+}
+
+.fa-thumbs-up:hover{
+    color: #8B4513;
+}
+
+.fa-thumbs-o-up:hover{
+    color: #00008B;
 }
