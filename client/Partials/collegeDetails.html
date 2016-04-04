@@ -54,7 +54,23 @@
 		<div class="VMCollegeName">
 			<div class="CollegeNameText" align="center" >
 				<span class="CollegeNameTextSpan">
-				{{name}}
+				{{name}}				
+				</span>				
+			</div>
+			<div class="BookmarkIcon" align="bottom">
+				<span class="BookmarkIconSpan">
+					{{#if bookmark}}
+						<i class="fa fa-bookmark" id="unmark"></i>
+					{{else}}			
+						<i class="fa fa-bookmark-o" id="mark"></i>
+					{{/if}}
+					&nbsp;
+					{{#if like}}
+						<i class="fa fa-thumbs-up" id="unlike"></i>
+					{{else}}			
+						<i class="fa fa-thumbs-o-up" id="like"></i>
+					{{/if}}
+					{{likeCount}}
 				</span>
 			</div>
 		</div>
@@ -123,19 +139,9 @@
 		
 		<div class="VMCommentThread">
 			
-				{{#if bookmark}}
-					<button id="unmark">Unmark</button>
-				{{else}}			
-					<button id="mark">Mark</button>
-				{{/if}}
+				
 				<br>
-				{{#if like}}
-					<button id="unlike">Unlike</button>
-				{{else}}			
-					<button id="like">Like</button>
-				{{/if}}
-				<br>
-				Likes - {{likeCount}}
+				
 
 				{{> AddComment}}
 

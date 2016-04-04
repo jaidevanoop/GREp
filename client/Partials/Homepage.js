@@ -119,6 +119,9 @@ Template.AdvSearch.rendered = function () {
 Template.Homepage.events({
 	'click #us': function(){
 		Router.go('/search');
+	},
+	'click #other': function(){
+		window.alert("Coming Soon");
 	}
 })
 
