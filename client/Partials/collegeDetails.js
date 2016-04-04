@@ -50,7 +50,16 @@ Template.collegeShow.helpers({
 	},
 	'comments': function() {
 		Meteor.subscribe('comments');
-		return Comments.find({collegeid: this._id});
+		var num = Session.get('limit');
+		//console.log(typeof(num));
+		var obj = Comments.find({collegeid: this._id},{sort:{createdAt:-1},limit:num});
+		return obj;
+	},
+	'remain': function() {
+		var num = Comments.find({collegeid: this._id}).count() - Session.get('limit');
+		if(num <= 0)
+			return 0;
+		return num;
 	}
 });
 
@@ -74,10 +83,15 @@ Template.collegeShow.events({
 		var id = this._id;
 		var user_id = Meteor.userId();
 		Universities.update({_id: id},{$pull: { like: user_id}});
+	},
+	'click #loadmore': function() {
+		var limit = Session.get('limit');
+		Session.set('limit',limit*2);
 	}
 });
 
 Template.collegeShow.onCreated(function() {
+	Session.setDefault('limit',5);
   // We can use the `ready` callback to interact with the map API once the map is ready.
   GoogleMaps.ready('exampleMap', function(map) {
     // Add a marker to the map once it's ready

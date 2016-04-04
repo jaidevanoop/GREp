@@ -17,6 +17,8 @@ Template.AddComment.events({
 			// }
 		});
 
+		event.target.addComment.value = "";
+
 	}
 });
 

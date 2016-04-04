@@ -138,19 +138,21 @@
 	
 		<br><br>
 		<div class="col-sm-12">
-			<ul class="list-group">
-				{{#each comments}}
-					{{> singleComment}}
-				{{/each}}
-			</ul>
-		</div>
-		<div class="col-sm-12">
 			{{#if currentUser}}
 				{{> AddComment}}
 			{{else}}
 				<h2 class="text-center">You need to login in order to submit comment!</h2>
 			{{/if}}
 		</div>
-
+		<div class="col-sm-12">
+			<ul class="list-group">
+				{{#each comments}}
+					{{> singleComment}}
+				{{/each}}
+			</ul>
+		</div>
+		{{#if remain}}
+			<button class="btn btn-default" id="loadmore">Load-More ({{remain}})</button>
+		{{/if}}
 	</div>
 </template>
