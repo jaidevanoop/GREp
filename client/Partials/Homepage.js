@@ -1,6 +1,6 @@
 Template.Search.helpers({
 	details: function(){
-		if(Session.get('collegeSelected'))
+		if(Session.get('selectedUni'))
 			return true;
 		return false;
 	}
@@ -139,7 +139,6 @@ Template.searchboard.events({
 	'click .uni': function(){
 		var uniID = this.__originalId;
 		Session.set('selectedUni', uniID);
-		Session.set('collegeSelected',uniID);
 	}
 });
 

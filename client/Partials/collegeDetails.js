@@ -6,8 +6,7 @@ Template.collegeShow.helpers({
   exampleMapOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
-		Meteor.subscribe('universities');
-		var id = Session.get('collegeSelected');
+		var id = this._id;
 		var uni = Universities.findOne(id);
       return {
         center: new google.maps.LatLng(uni.latitude,uni.longitude),
@@ -16,13 +15,61 @@ Template.collegeShow.helpers({
     }
   },
   'courses': function(){
-		Meteor.subscribe('universities');
-		var id = Session.get('collegeSelected');
-
+		var id = this._id;
 		if(Universities.findOne(id).coursesOffered){
 			return true;
 		}
 		return false;
+	},
+	'bookmark': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		var obj = Universities.findOne(id).bookmark;
+		for (var i = 0; i < obj.length; i++) {
+			if(obj[i] == user_id){
+				return true;
+			}	
+		};		
+		return false;
+	},
+	'like': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		var obj = Universities.findOne(id).like;
+		for (var i = 0; i < obj.length; i++) {
+			if(obj[i] == user_id){
+				return true;
+			}	
+		};		
+		return false;
+	},
+	'likeCount': function(){
+		var id = this._id;
+		var obj = Universities.findOne(id).like;
+		return obj.length;
+	},
+});
+
+Template.collegeShow.events({
+	'click #mark': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		Universities.update({_id: id},{$addToSet: { bookmark: user_id}});
+	},
+	'click #unmark': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		Universities.update({_id: id},{$pull: { bookmark: user_id}});
+	},
+	'click #like': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		Universities.update({_id: id},{$addToSet: { like: user_id}});
+	},
+	'click #unlike': function(){
+		var id = this._id;
+		var user_id = Meteor.userId();
+		Universities.update({_id: id},{$pull: { like: user_id}});
 	}
 });
 
@@ -45,4 +92,3 @@ Template.moreCollegeDetails.helpers({
 		return Universities.findOne(id);
 	}
 });
-
