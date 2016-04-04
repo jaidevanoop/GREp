@@ -14,10 +14,5 @@ Meteor.startup(function() {
 	// Accounts.config({
 	// 	sendVerificationEmail: true
 	// });
-});
 
-Meteor.methods({
-	"userExists": function(username){
-		return !!Meteor.users.findOne({username: username});
-	},
 });

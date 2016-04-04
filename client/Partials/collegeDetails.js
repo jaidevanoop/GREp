@@ -48,6 +48,10 @@ Template.collegeShow.helpers({
 		var obj = Universities.findOne(id).like;
 		return obj.length;
 	},
+	'comments': function() {
+		Meteor.subscribe('comments');
+		return Comments.find({collegeid: this._id});
+	}
 });
 
 Template.collegeShow.events({
