@@ -13,9 +13,9 @@
 
 <template name="singleComment">
 
-	<li class="list-unstyled" style="border-top:1px solid #000;">Username: {{username}}</li>
+	<li class="list-unstyled">Username: {{username}}</li>
 	<li class="list-unstyled">Message: {{content}}</li>
-	<li class="list-unstyled">Time: {{createdAt}}</li>
+	<li class="list-unstyled"  style="border-top:1px solid #000;">Time: {{createdAt}}</li>
 	{{#if commentDeleteRight}}
 		<li class="btn btn-danger" id="deleteComment">Delete Comment</li>
 	{{/if}}
