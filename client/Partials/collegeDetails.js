@@ -47,7 +47,7 @@ Template.collegeShow.helpers({
 		var id = this._id;
 		var obj = Universities.findOne(id).like;
 		return obj.length;
-	}
+	},
 });
 
 Template.collegeShow.events({
@@ -92,4 +92,3 @@ Template.moreCollegeDetails.helpers({
 		return Universities.findOne(id);
 	}
 });
-
