@@ -58,20 +58,22 @@
 				</span>				
 			</div>
 			<div class="BookmarkIcon" align="bottom">
-				<span class="BookmarkIconSpan">
-					{{#if bookmark}}
-						<i class="fa fa-bookmark" id="unmark"></i>
-					{{else}}			
-						<i class="fa fa-bookmark-o" id="mark"></i>
-					{{/if}}
-					&nbsp;
-					{{#if like}}
-						<i class="fa fa-thumbs-up" id="unlike"></i>
-					{{else}}			
-						<i class="fa fa-thumbs-o-up" id="like"></i>
-					{{/if}}
-					{{likeCount}}
-				</span>
+				{{#if currentUser}}
+					<span class="BookmarkIconSpan">
+						{{#if bookmark}}
+							<i class="fa fa-bookmark" id="unmark"></i>
+						{{else}}			
+							<i class="fa fa-bookmark-o" id="mark"></i>
+						{{/if}}
+						&nbsp;
+						{{#if like}}
+							<i class="fa fa-thumbs-up" id="unlike"></i>
+						{{else}}			
+							<i class="fa fa-thumbs-o-up" id="like"></i>
+						{{/if}}
+						{{likeCount}}
+					</span>
+				{{/if}}
 			</div>
 		</div>
 		<div class="VMLocation">
@@ -135,24 +137,28 @@
 			</div>
 		</div>
 		{{/if}}
-	
-		<br><br>
-		<div class="col-sm-12">
-			{{#if currentUser}}
-				{{> AddComment}}
-			{{else}}
-				<h2 class="text-center">You need to login in order to submit comment!</h2>
-			{{/if}}
-		</div>
-		<div class="col-sm-12">
-			<ul class="list-group">
-				{{#each comments}}
-					{{> singleComment}}
-				{{/each}}
-			</ul>
-		</div>
-		{{#if remain}}
-			<button class="btn btn-default" id="loadmore">Load-More ({{remain}})</button>
-		{{/if}}
 	</div>
+		
+		<div class="row">
+			<div class="container">
+				<div class="col-sm-12">
+					{{#if currentUser}}
+						{{> AddComment}}
+					{{else}}
+						<h2 class="text-center">You need to login in order to submit comment!</h2>
+					{{/if}}
+				</div>
+				<div class="col-sm-12">
+					<ul class="list-group">
+						{{#each comments}}
+							{{> singleComment}}
+						{{/each}}
+					</ul>
+				</div>
+				{{#if remain}}
+					<button class="btn btn-default" id="loadmore">Load-More ({{remain}})</button>
+				{{/if}}
+			</div>
+		</div>
+	
 </template>
