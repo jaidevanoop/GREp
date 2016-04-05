@@ -3,11 +3,6 @@ Template.bookmark.helpers({
 		Meteor.subscribe('universities');
 		var id = Meteor.userId();
 		return Universities.find({bookmark:{$in:[id]}},{sort:{greCutoff:-1,toeflCutoff:-1}});
-	},
-	'details': function(){
-		if(Session.get('selectedUni'))
-			return true;
-		return false;
 	}
 });
 
