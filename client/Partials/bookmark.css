@@ -1,0 +1,37 @@
+.uni .viewmore {
+	font-size: 1.25em;
+	font-weight: bold;
+	position: absolute;
+	right: 100px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 4px;
+	background: #2CD74C;
+}
+
+.uni .viewmore > a {
+	color: #FFF;
+}
+
+.uni .viewmore > a:hover {
+	color: #23527c;
+}
+
+.uni .remove {
+	float: right;
+	font-weight: bold;
+	background: #DE4F4F;
+	color: #FFF;
+	font-size: 1em;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 4px;
+}
+
+.uni .remove > a {
+	color: #FFF;
+}
+
+.uni .remove > a:hover {
+	color: #23527c;
+}
