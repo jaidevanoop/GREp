@@ -20,7 +20,7 @@ Template.AdvSearch.helpers({
 		var exp1 = { $gte : test2 , $lte : test1};
 		var exp2 = { $gte : test4 , $lte : test3};
 		var exp = {greCutoff: exp1, toeflCutoff: exp2};
-		var list = Universities.find(exp, {sort:{greCutoff:-1,toeflCutoff:-1});
+		var list = Universities.find(exp, {sort:{greCutoff:-1,toeflCutoff:-1}});
 		return list;
 	},
 	details: function(){
