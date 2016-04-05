@@ -19,7 +19,7 @@
 					<li><a href="/search"><i class="fa fa-terminal"></i>&nbsp;&nbsp;Search</a></li>
 					<li><a href="/advsearch"><i class="fa fa-search"></i>&nbsp;Advanced Search</a></li>
 					{{#if currentUser}}
-						<li><a href="/bookmark"><i class="fa fa-bookmark"></i>&nbsp;Bookmark</a></li>
+  						<li><a href="{{pathFor 'profile' data=currentUser}}">View Profile</a></li>
 					{{/if}}
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
