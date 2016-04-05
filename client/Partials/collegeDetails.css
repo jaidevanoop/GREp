@@ -208,12 +208,12 @@ dark brown 8B4513
 blue 337ab7
 */
 
-.fa-bookmark{    
+.VMCollegeName .fa-bookmark{    
     color: #FFD700;
     /*outline: red;*/
 }
 
-.fa-bookmark:hover{
+.VMCollegeName .fa-bookmark:hover{
     color: #DAA520;
 }
 
