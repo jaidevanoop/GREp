@@ -44,21 +44,22 @@
 </template>
 
 <template name="collegeShow">
-	<div class="blended_grid">
-		<div class="VMCollegePicture">
-			<img src="{{imageLink}}" alt="{{name}}">
-		</div>
-		<div class="VMMaps">
-			{{> googleMap name="exampleMap" options=exampleMapOptions}}
-		</div>
-		<div class="VMCollegeName">
-			<div class="CollegeNameText" align="center" >
-				<span class="CollegeNameTextSpan">
-				{{name}}				
-				</span>				
+	<div class="row">
+		<div class="blended_grid">
+			<div class="VMCollegePicture">
+				<img src="{{imageLink}}" alt="{{name}}">
 			</div>
-			<div class="BookmarkIcon" align="bottom">
-				{{#if currentUser}}
+			<div class="VMMaps">
+				{{> googleMap name="exampleMap" options=exampleMapOptions}}
+
+			</div>
+			<div class="VMCollegeName">
+				<div class="CollegeNameText" align="center" >
+					<span class="CollegeNameTextSpan">
+					{{name}}				
+					</span>				
+				</div>
+				<div class="BookmarkIcon" align="bottom">
 					<span class="BookmarkIconSpan">
 						{{#if bookmark}}
 							<i class="fa fa-bookmark" id="unmark"></i>
@@ -73,92 +74,97 @@
 						{{/if}}
 						{{likeCount}}
 					</span>
-				{{/if}}
+				</div>
 			</div>
-		</div>
-		<div class="VMLocation">
-			<div class="CollegeNameText" align="center" >
-				<span class="CollegeAddressTextSpan">
-				{{location}}<br>{{state}}
-				</span>
-			</div>			
-		</div>
-		<div class="VMCollegeScores">
-			<div class="VMscoreanddeadline">
-				<span class="CollegeScoreTextSpan">
-				GRE Score: {{greCutoff}}
-				</span>
+			<div class="VMLocation">
+				<div class="CollegeNameText" align="center" >
+					<span class="CollegeAddressTextSpan">
+					{{location}}<br>{{state}}
+					</span>
+				</div>			
 			</div>
-			<div class="VMscoreanddeadline">
-				<span class="CollegeScoreTextSpan">
-				Toefl Score: {{toeflCutoff}}
-				</span>
+			<div class="VMCollegeScores">
+				<div class="VMscoreanddeadline">
+					<span class="CollegeScoreTextSpan">
+					GRE Score: {{greCutoff}}
+					</span>
+				</div>
+				<div class="VMscoreanddeadline">
+					<span class="CollegeScoreTextSpan">
+					Toefl Score: {{toeflCutoff}}
+					</span>
+				</div>
+				<div class="VMscoreanddeadline">
+					<span class="CollegeScoreTextSpan">
+					Application Deadline: {{showDate deadLine}}
+					</span>
+				</div>
 			</div>
-			<div class="VMscoreanddeadline">
-				<span class="CollegeScoreTextSpan">
-				Application Deadline: {{showDate deadLine}}
-				</span>
-			</div>
-		</div>
 
 
-		{{#if courses}}
-		<div class="VMCollegeCourses">
-			<div class="panel panel-primary">
-				
-				<div class="row">
-				<div class="container">
-					<div class="panel-heading">
-			    		<h3 class="panel-title">Courses Offered</h3>
-			  		</div>
-					<div class="panel-body">
-						<table class="table table-hover" >
-						<thead >
-							<tr>
-								<th>Course Name</th>
-								<th>Ranking</th>
-								<th>PhD</th>
-							</tr>
-						</thead>
-						{{#each coursesOffered}}
-						<tbody >
-							<tr>
-							<td>{{name}}</td>
-							<td>{{ranking}}</td>
-							<td>{{Phd}}</td>
-							</tr>
-							
-						</tbody>
-						{{/each}}
-						</table>
+			{{#if courses}}
+			<div class="VMCollegeCourses">
+				<div class="panel panel-primary">
+					
+					<div class="row">
+						<div class="container">
+							<div class="panel-heading">
+					    		<h3 class="panel-title">Courses Offered</h3>
+					  		</div>
+							<div class="panel-body">
+								<table class="table table-hover" >
+								<thead >
+									<tr>
+										<th>Course Name</th>
+										<th>Ranking</th>
+										<th>PhD</th>
+									</tr>
+								</thead>
+								{{#each coursesOffered}}
+								<tbody >
+									<tr>
+									<td>{{name}}</td>
+									<td>{{ranking}}</td>
+									<td>{{Phd}}</td>
+									</tr>
+									
+								</tbody>
+								{{/each}}
+								</table>
+							</div>
+						</div>
 					</div>
 				</div>
-				</div>
 			</div>
+
+			{{/if}}
+
 		</div>
-		{{/if}}
 	</div>
-		
-		<div class="row">
-			<div class="container">
-				<div class="col-sm-12">
-					{{#if currentUser}}
-						{{> AddComment}}
-					{{else}}
-						<h2 class="text-center">You need to login in order to submit comment!</h2>
-					{{/if}}
-				</div>
-				<div class="col-sm-12">
-					<ul class="list-group">
-						{{#each comments}}
-							{{> singleComment}}
-						{{/each}}
-					</ul>
-				</div>
+
+	<div class="row">
+		<div class="container">
+			<br><br>
+			<div class="col-sm-12">
+				{{#if currentUser}}
+					{{> AddComment}}
+				{{else}}
+					<h2 class="text-center">You need to login in order to submit comment!</h2>
+				{{/if}}
+			</div>
+			<div class="col-sm-12">
+				<ul class="list-group">
+					{{#each comments}}
+						{{> singleComment}}
+					{{/each}}
+				</ul>
+			</div>
+			<div class="loadMoreButton" style="padding-left: 10px;">
 				{{#if remain}}
-					<button class="btn btn-default" id="loadmore">Load-More ({{remain}})</button>
+					<button class="btn btn-default" id="loadmore">Load More ({{remain}})</button>
 				{{/if}}
 			</div>
 		</div>
+	</div>
 	
 </template>
