@@ -7,13 +7,14 @@
 	border: none;
 	border-radius: 4px;
 	background: #2CD74C;
-}
-
-.uni .viewmore > a {
 	color: #FFF;
 }
 
-.uni .viewmore > a:hover {
+/*.uni .viewmore > a {
+	color: #FFF;
+}*/
+
+.uni .viewmore:hover {
 	color: #23527c;
 }
 
@@ -34,4 +35,21 @@
 
 .uni .remove > a:hover {
 	color: #23527c;
+}
+
+.uni .bookmarkPageForUni .grescore {
+	color: #333;
+	font-size: 1.25em;
+	font-weight: 600;
+	/*margin-right: 2em;*/
+	/*position: absolute;*/
+	margin-right: 4em;
+	/*right: 100px;*/
+}
+
+.uni .bookmarkPageForUni .toeflscore {
+	font-size: 1em;
+	margin-right: 4em;
+	vertical-align: top;
+	color: #333;
 }
