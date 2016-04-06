@@ -20,14 +20,14 @@
 			<!-- <li class="btn btn-danger" id="deleteComment">Delete Comment</li> -->
 			<a href="" class="close" id="deleteComment">x</a>
 		{{/if}}
-		<li class="list-unstyled" style="border-top:1px solid #000; padding: 2px;">
+		<li class="list-unstyled" style="border-top:1px solid #000; padding-top: 5px;">
 			<span class="ourUsername" style="color: #337AB7; font-weight: bold; font-size: initial;">{{username}}</span>
 			&nbsp;
 			<span class="ourTime" style="font-size: small; color: grey;">
 				({{>timeago createdAt}})
 			</span>
 		</li>
-		<li class="list-unstyled message">
+		<li class="list-unstyled message" style="padding: 5px; padding-left: 20px; padding-right: 10px;">
 			{{content}}
 		</li>
 		<!-- <li class="list-unstyled">Time: {{createdAt}}</li> -->
