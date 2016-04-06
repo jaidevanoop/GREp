@@ -1,5 +1,5 @@
-// Template.navbar.helpers({
-// 	'me': function() {
-// 		return Meteor.userId();
-// 	}
-// });
+Template.navbar.helpers({
+	'username': function() {
+		return Meteor.user().username;
+	}
+});
