@@ -2,10 +2,10 @@
 	<form role="form" class="form-horizontal" id="addCommentForm">
 		<div class="form-group">
 			<label for="addComment">Type your comment message below then hit submit</label>
-			<input type="text" class="form-control" id="addComment" name="addComment" required>
+			<textarea class="form-control" id="addComment" name="addComment" required></textarea>
 		</div>
 		<div class="form-group">
-			<button type="submit" class="form-control btn btn-primary">Submit comment</button>
+			<button type="submit" class="form-control btn btn-primary" style="width: 15%;min-width: 60px;">Submit</button>
 		</div>
 	</form>
 	
@@ -13,11 +13,27 @@
 
 <template name="singleComment">
 
-	<li class="list-unstyled" style="border-top:1px solid #000;">Username: {{username}}</li>
-	<li class="list-unstyled">Message: {{content}}</li>
-	<li class="list-unstyled">Time: {{createdAt}}</li>
-
-	{{#if commentDeleteRight}}
-		<li class="btn btn-danger" id="deleteComment">Delete Comment</li>
-	{{/if}}
+	<div id="ourComment"> 
+		<!-- <h1>Your Title</h1>
+		<a href="" class="close">Close</a> -->
+		{{#if commentDeleteRight}}
+			<!-- <li class="btn btn-danger" id="deleteComment">Delete Comment</li> -->
+			<a href="" class="close" id="deleteComment">x</a>
+		{{/if}}
+		<li class="list-unstyled" style="border-top:1px solid #000;">
+			<span class="ourUsername" style="color: #337AB7; font-weight: bold; font-size: initial;">{{username}}</span>
+			&nbsp;
+			<span class="ourTime" style="font-size: small; color: grey;">
+				({{>timeago createdAt}})
+			</span>
+		</li>
+		<li class="list-unstyled message">
+			{{content}}
+		</li>
+		<!-- <li class="list-unstyled">Time: {{createdAt}}</li> -->
+		<!-- {{#if commentDeleteRight}}
+			<li class="btn btn-danger" id="deleteComment">Delete Comment</li>
+			<a href="" class="close">Close</a>
+		{{/if}} -->
+	</div>
 </template>

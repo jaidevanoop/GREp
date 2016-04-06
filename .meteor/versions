@@ -76,6 +76,7 @@ matb33:bootstrap-glyphicons@10.0.0
 mdg:validation-error@0.2.0
 meteor@1.1.10
 meteor-base@1.0.1
+meteor-platform@1.2.3
 meteorhacks:meteorx@1.0.2
 meteorhacks:unblock@1.1.0
 meteortoys:allthings@2.3.1
@@ -146,5 +147,6 @@ useraccounts:core@1.13.1
 useraccounts:iron-routing@1.13.1
 webapp@1.2.3
 webapp-hashing@1.0.5
+wollardj:timeago@1.2.0
 yogiben:admin@1.2.6
 zimme:active-route@2.3.2
