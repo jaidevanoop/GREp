@@ -27,7 +27,18 @@ Template.AdvSearch.helpers({
 		if(Session.get('selectedUni'))
 			return true;
 		return false;
-	}
+	},
+	countryOpt: function(){
+		var myArray = Universities.find().fetch();
+		var distinctArray = _.uniq(myArray, false, function(d) {return d.country});
+		// var distinctEntries = _.uniq(Universities.find({}, {
+    	// 	sort: {country: 1}, fields: {country: true}
+		// }).fetch().map(function(x) {
+    	// 	return x.country;
+		// }), true);
+		//var list = Universities.distinct("country");
+		return distinctArray;
+	},
 });
 
 Template.AdvSearch.events({
