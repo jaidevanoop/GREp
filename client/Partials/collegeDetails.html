@@ -13,11 +13,6 @@
 				<td><div class="info">{{college.location}}</div></td>
 				</tr>
 				<tr>
-				<td><div class="header">State</div></td>
-				<td><div class="divider">:</div></td>
-				<td><div class="info">{{college.state}}</div></td>
-				</tr>
-				<tr>
 				<td><div class="header">GRE Cutoff</div></td>
 				<td><div class="divider">:</div></td>
 				<td><div class="info">{{college.greCutoff}}</div></td>
@@ -56,20 +51,20 @@
 			<div class="VMCollegeName">
 				<div class="CollegeNameText" align="center" >
 					<span class="CollegeNameTextSpan">
-					{{name}}				
-					</span>				
+					{{name}}
+					</span>
 				</div>
 				<div class="BookmarkIcon" align="bottom">
 					<span class="BookmarkIconSpan">
 						{{#if bookmark}}
 							<i class="fa fa-bookmark" id="unmark"></i>
-						{{else}}			
+						{{else}}
 							<i class="fa fa-bookmark-o" id="mark"></i>
 						{{/if}}
 						&nbsp;
 						{{#if like}}
 							<i class="fa fa-thumbs-up" id="unlike"></i>
-						{{else}}			
+						{{else}}
 							<i class="fa fa-thumbs-o-up" id="like"></i>
 						{{/if}}
 						{{likeCount}}
@@ -79,9 +74,9 @@
 			<div class="VMLocation">
 				<div class="CollegeNameText" align="center" >
 					<span class="CollegeAddressTextSpan">
-					{{location}}<br>{{state}}
+					{{location}}<br>{{country}}
 					</span>
-				</div>			
+				</div>
 			</div>
 			<div class="VMCollegeScores">
 				<div class="VMscoreanddeadline">
@@ -102,32 +97,32 @@
 			</div>
 
 
-			{{#if courses}}
+			{{#if departments}}
 			<div class="VMCollegeCourses">
 				<div class="panel panel-primary">
-					
+
 					<div class="row">
 						<div class="container">
 							<div class="panel-heading">
-					    		<h3 class="panel-title">Courses Offered</h3>
+					    		<h3 class="panel-title">Departments</h3>
 					  		</div>
 							<div class="panel-body">
 								<table class="table table-hover" >
 								<thead >
 									<tr>
-										<th>Course Name</th>
+										<th>Department Name</th>
 										<th>Ranking</th>
-										<th>PhD</th>
+										<th>GRE Score</th>
 									</tr>
 								</thead>
-								{{#each coursesOffered}}
+								{{#each dept}}
 								<tbody >
 									<tr>
 									<td>{{name}}</td>
 									<td>{{ranking}}</td>
-									<td>{{Phd}}</td>
+									<td>{{greCutoff}}</td>
 									</tr>
-									
+
 								</tbody>
 								{{/each}}
 								</table>
@@ -166,5 +161,5 @@
 			</div>
 		</div>
 	</div>
-	
+
 </template>
