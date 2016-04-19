@@ -2,9 +2,15 @@
 	<div class="row">
 		<div class="container">
 			<ol class="searchboard">
-				{{#each bookmark}}
-					{{> univ3}}
-				{{/each}}
+				{{#if existsBookmark}}
+					{{#each bookmark}}
+						{{> univ3}}
+					{{/each}}
+				{{else}}
+					<h1 style="padding: 20px; padding-top: 4vw;" align="center">
+						No colleges currently bookmarked
+					</h1>
+				{{/if}}
 			</ol>
 		</div>
 	</div>
@@ -16,9 +22,12 @@
 <template name="univ3">
   <li class="uni">
     <span class="name">{{name}}</span>
-    <span class="metadata">
-      <span class="viewmore"><a href="college/{{_id}}"><i class="fa fa-eye"></i></a></span>
-      <span class="remove"><a href="#"><i class="fa fa-close"></i></a></span>
+	<span class="metadata">
+	    <span class="bookmarkPageForUni">
+			<a href="college/{{_id}}"><span class="viewmore"><i class="fa fa-eye"></i></span></a>
+			<span class="grescore">{{greCutoff}}</span>
+			<span class="remove"><a href="#"><i class="fa fa-close"></i></a></span>
+	  	</span>
     </span>
   </li>
 </template>
