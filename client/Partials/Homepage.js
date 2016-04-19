@@ -31,16 +31,34 @@ Template.AdvSearch.helpers({
 			var exp = {greCutoff: exp1, toeflCutoff: exp2, country: exp3};
 		}
 		
+		var options2 = Session.get("options2");
+
+		if(options2 == undefined || options2.length == 0)
+		{
+			var EXP = exp;
+		}
+		else
+		{
+			var exp4 = { $in: options2 };
+			var exp5 = {'dept.category1': exp4};
+			var exp6 = {'dept.category2': exp4};
+			var exp7 = { $or: [exp5,exp6]};
+			var EXP = { $and: [exp,exp7]};
+		}
+
 
 		// var exp = {greCutoff: exp1, toeflCutoff: exp2, country: exp3};
-		var list = Universities.find(exp, {sort:{greCutoff:-1,toeflCutoff:-1}});
+		var list = Universities.find(EXP, {sort:{greCutoff:-1,toeflCutoff:-1}});
 		return list;
 	},
 	details: function(){
 		if(Session.get('selectedUni'))
 			return true;
 		return false;
-	},
+	}
+});
+
+Template.primaryCheckbox.helpers({
 	countryOpt: function(){
 		var myArray = Universities.find().fetch();
 		var distinctArray = _.uniq(myArray, false, function(d) {return d.country});
@@ -51,28 +69,10 @@ Template.AdvSearch.helpers({
 		// }), true);
 		//var list = Universities.distinct("country");
 		return distinctArray;
-	},
-	// departmentOpt: function(){
-	// 	//var myArray = Universities.find().fetch();
-	// 	var mArray = Universities.find({}, {'dept.category2':1, _id:0});
-	// 	// var distinctArray = _.uniq(myArray, false);
-	// 	// var myArray = Universities.find({}, {country:1}).fetch();
-	// 	// var distinctArray = _.uniq(myArray, false, function(d) {return d.dept.category1});
-	// 	// var distinctArray = _.uniq(myArray, false, function(d) {return d.country});
-	// 	// console.log(distinctArray);
-	// 	// console.log(myArray);
-	// 	// return distinctArray;
-	// 	// return distinctArray;
-	// 	return mArray;
-
-	// },
+	}
 });
 
-Template.AdvSearch.events({
-	'click .uni': function() {
-		var uniID = this._id;
-		Session.set('selectedUni', uniID);
-	},
+Template.primaryCheckbox.events({
 	'click #inlineCheckbox1': function(e,t){
 		//e.preventDefault();
 
@@ -83,6 +83,65 @@ Template.AdvSearch.events({
 		});
 
 		Session.set("options",array);
+	}
+});
+
+Template.secondaryCheckbox.helpers({
+	departmentOpt: function(){
+		//var myArray = Universities.find().fetch();
+		var cat = [];
+
+		Meteor.subscribe('universities');
+		var mArray = Universities.find().fetch();
+		// var distinctArray = _.uniq(myArray, false);
+		//var mArray = Universities.find({}, {country:1});
+		// var distinctArray = _.uniq(myArray, false, function(d) {return d.dept.category1});
+		// var distinctArray = _.uniq(myArray, false, function(d) {return d.country});
+		// console.log(distinctArray);
+		for (var i = 0; i < mArray.length; i++) {
+			var depart = mArray[i].dept;
+			// console.log(depart[0].name);
+			for (var j = 0; j < depart.length; j++) {
+				// console.log(depart[i].name);
+				var d = depart[j];
+				// console.log(d);
+				if (_.findWhere(cat, d.category1) == null) {
+				    cat.push(d.category1);
+				}
+				if (_.findWhere(cat, d.category2) == null) {
+				    cat.push(d.category2);
+				}
+			};
+		};
+
+		// console.log(cat);
+
+
+		// return distinctArray;
+		// return distinctArray;
+		return cat;
+
+	}
+});
+
+Template.secondaryCheckbox.events({
+	'click #inlineCheckbox2': function(e,t){
+		//e.preventDefault();
+
+		var selected = t.findAll( "input[type=checkbox]:checked");
+
+		var array = _.map(selected, function(item) {
+   			return item.defaultValue;
+		});
+
+		Session.set("options2",array);
+	}
+});
+
+Template.AdvSearch.events({
+	'click .uni': function() {
+		var uniID = this._id;
+		Session.set('selectedUni', uniID);
 	}
 });
 

@@ -72,27 +72,8 @@
 					</div>
 			</div>
 		</div>
-		<div class="row row-centered">
-			<div class="checkbox">
-				{{#each countryOpt}}
-					<label class="checkbox-inline">
-					<input type="checkbox" id="inlineCheckbox1" value="{{country}}"> {{country}}
-					</label>
-				{{/each}}
-			</div>
-		</div>
-		<!-- <div class="row row-centered">
-			<div class="checkbox">
-				{{#each departmentOpt}}
-					<label class="checkbox-inline">
-					
-					{{#each this.dept}}
-						{{category1}}
-					{{/each}}
-					</label>
-				{{/each}}
-			</div>
-		</div> -->
+		{{> primaryCheckbox}}
+		{{> secondaryCheckbox}}
 	</div>
 	<br>
 	<div class="row">
@@ -116,6 +97,30 @@
   </div>
   {{/if}}
 
+</template>
+
+<template name="secondaryCheckbox">
+	<div class="row row-centered">
+		<div class="checkbox">
+			{{#each departmentOpt}}
+				<label class="checkbox-inline">
+				<input type="checkbox" id="inlineCheckbox2" value="{{this}}"> {{this}}
+				</label>
+			{{/each}}
+		</div>
+	</div>
+</template>
+
+<template name="primaryCheckbox">
+	<div class="row row-centered">
+		<div class="checkbox">
+			{{#each countryOpt}}
+				<label class="checkbox-inline">
+				<input type="checkbox" id="inlineCheckbox1" value="{{country}}"> {{country}}
+				</label>
+			{{/each}}
+		</div>
+	</div>
 </template>
 
 <template name="searchboard">
