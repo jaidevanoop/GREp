@@ -110,3 +110,9 @@ Template.moreCollegeDetails.helpers({
 		return Universities.findOne(id);
 	}
 });
+
+Template.moreCollegeDetails.events({
+	'click #view': function(){
+		Session.set('selectedUni', null);
+	}
+});
