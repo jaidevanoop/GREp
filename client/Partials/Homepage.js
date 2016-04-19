@@ -230,7 +230,13 @@ Template.Homepage.events({
 	},
 	'click #other': function(){
 		window.alert("Coming Soon");
-	}
+	},
+	'click #searchicon': function(){
+		Router.go('/search');
+	},
+	'click #advsearchicon': function(){
+		Router.go('/advsearch');
+	},
 })
 
 Template.searchboard.helpers({
