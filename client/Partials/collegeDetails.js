@@ -87,7 +87,7 @@ Template.collegeShow.events({
 	'click #loadmore': function() {
 		var limit = Session.get('limit');
 		Session.set('limit',limit*2);
-	}
+	},
 });
 
 Template.collegeShow.onCreated(function() {
