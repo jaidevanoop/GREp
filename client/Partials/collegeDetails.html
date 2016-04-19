@@ -117,32 +117,30 @@
 									</thead>
 									{{#each dept}}
 									<tbody >
-										<tr data-toggle="collapse" data-target="#{{name}}" class="accordion-toggle">
+										<tr data-toggle="collapse" data-target="#{{num}}" class="accordion-toggle">
 											<td>{{name}}</td>
 											<td>{{ranking}}</td>
 											<td>{{greCutoff}}</td>
 										</tr>
 										<tr>
-											<td colspan="12" class="hiddenRow">
-												<div class="accordian-body collapse" id="{{name}}">
-													<table class="table table-striped" >
-														<thead >
-															<tr>
-																<th>Course Name</th>
-																<th>Phd Offered</th>
-															</tr>
-														</thead>
-														{{#each coursesOffered}}
-														<tbody>
-															<tr>
-																<td>{{name}}</td>
-																<td>{{Phd}}</td>
-															</tr>
-														</tbody>
-														{{/each}}
-													</table>
-												</div>
-											</td>
+											<div class="accordion-body collapse" id="{{num}}">
+												<table class="table table-hover" >
+													<thead >
+														<tr>
+															<th>Course Name</th>
+															<th>Phd Offered</th>
+														</tr>
+													</thead>
+													{{#each coursesOffered}}
+													<tbody>
+														<tr>
+															<td>{{name}}</td>
+															<td>{{Phd}}</td>
+														</tr>
+													</tbody>
+													{{/each}}
+												</table>
+											</div>
 										</tr>
 									</tbody>
 									{{/each}}
