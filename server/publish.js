@@ -5,3 +5,7 @@ Meteor.publish('universities', function(){
 Meteor.publish('comments', function(){
     return Comments.find();
 });
+
+// Meteor.publish('dept',function(){
+// 	return DeptList.find();
+// });
