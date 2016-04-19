@@ -1,45 +1,40 @@
 <template name="moreCollegeDetails">
 	<div class="panel panel-primary">
-  		<div class="panel-heading">
-    		<h3 class="panel-title">{{college.name}}</h3>
-  		</div>
-	  	<div class="panel-body">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{college.name}}</h3>
+		</div>
+		<div class="panel-body">
 			<table class="table">
-			<br>
-			<tbody>
-				<tr>
-				<td><div class="header">Location</div></td>
-				<td><div class="divider">:</div></td>
-				<td><div class="info">{{college.location}}</div></td>
-				</tr>
-				<tr>
-				<td><div class="header">State</div></td>
-				<td><div class="divider">:</div></td>
-				<td><div class="info">{{college.state}}</div></td>
-				</tr>
-				<tr>
-				<td><div class="header">GRE Cutoff</div></td>
-				<td><div class="divider">:</div></td>
-				<td><div class="info">{{college.greCutoff}}</div></td>
-				</tr>
-				<tr>
-				<td><div class="header">Toefl Cutoff</div></td>
-				<td><div class="divider">:</div></td>
-				<td><div class="info">{{college.toeflCutoff}}</div></td>
-				</tr>
-				<tr>
-				<td><div class="header">Deadline</div></td>
-				<td><div class="divider">:</div></td>
-				<td><div class="info">{{showDate college.deadLine}}</div></td>
-				</tr>
+				<br>
+				<tbody>
+					<tr>
+						<td><div class="header">Location</div></td>
+						<td><div class="divider">:</div></td>
+						<td><div class="info">{{college.location}}</div></td>
+					</tr>
+					<tr>
+						<td><div class="header">GRE Cutoff</div></td>
+						<td><div class="divider">:</div></td>
+						<td><div class="info">{{college.greCutoff}}</div></td>
+					</tr>
+					<tr>
+						<td><div class="header">Toefl Cutoff</div></td>
+						<td><div class="divider">:</div></td>
+						<td><div class="info">{{college.toeflCutoff}}</div></td>
+					</tr>
+					<tr>
+						<td><div class="header">Deadline</div></td>
+						<td><div class="divider">:</div></td>
+						<td><div class="info">{{showDate college.deadLine}}</div></td>
+					</tr>
 
-			</tbody>
+				</tbody>
 			</table>
 		</div>
 	</div>
 	<div class="panel-footer">
 		<a href="http://{{college.website}}" target="_blank">{{college.website}}</a>
-		<a href="college/{{college._id}}" class="pull-right">VIEW MORE</a>
+		<a href="college/{{college._id}}" class="pull-right" id="view">VIEW MORE</a>
 	</div>
 </template>
 
@@ -56,21 +51,21 @@
 			<div class="VMCollegeName">
 				<div class="CollegeNameText" align="center" >
 					<span class="CollegeNameTextSpan">
-					{{name}}				
-					</span>				
+						{{name}}
+					</span>
 				</div>
 				<div class="BookmarkIcon" align="bottom">
 					<span class="BookmarkIconSpan">
 						{{#if bookmark}}
-							<i class="fa fa-bookmark" id="unmark"></i>
-						{{else}}			
-							<i class="fa fa-bookmark-o" id="mark"></i>
+						<i class="fa fa-bookmark" id="unmark"></i>
+						{{else}}
+						<i class="fa fa-bookmark-o" id="mark"></i>
 						{{/if}}
 						&nbsp;
 						{{#if like}}
-							<i class="fa fa-thumbs-up" id="unlike"></i>
-						{{else}}			
-							<i class="fa fa-thumbs-o-up" id="like"></i>
+						<i class="fa fa-thumbs-up" id="unlike"></i>
+						{{else}}
+						<i class="fa fa-thumbs-o-up" id="like"></i>
 						{{/if}}
 						{{likeCount}}
 					</span>
@@ -79,64 +74,82 @@
 			<div class="VMLocation">
 				<div class="CollegeNameText" align="center" >
 					<span class="CollegeAddressTextSpan">
-					{{location}}<br>{{state}}
+						{{location}}<br>{{country}}
 					</span>
-				</div>			
+				</div>
 			</div>
 			<div class="VMCollegeScores">
 				<div class="VMscoreanddeadline">
 					<span class="CollegeScoreTextSpan">
-					GRE Score: {{greCutoff}}
+						GRE Score: {{greCutoff}}
 					</span>
 				</div>
 				<div class="VMscoreanddeadline">
 					<span class="CollegeScoreTextSpan">
-					Toefl Score: {{toeflCutoff}}
+						Toefl Score: {{toeflCutoff}}
 					</span>
 				</div>
 				<div class="VMscoreanddeadline">
 					<span class="CollegeScoreTextSpan">
-					Application Deadline: {{showDate deadLine}}
+						Application Deadline: {{showDate deadLine}}
 					</span>
 				</div>
 			</div>
 
 
-			{{#if courses}}
+			{{#if departments}}
 			<div class="VMCollegeCourses">
 				<div class="panel panel-primary">
-					
+
 					<div class="row">
 						<div class="container">
 							<div class="panel-heading">
-					    		<h3 class="panel-title">Courses Offered</h3>
-					  		</div>
+								<h3 class="panel-title">Departments</h3>
+							</div>
 							<div class="panel-body">
 								<table class="table table-hover" >
-								<thead >
-									<tr>
-										<th>Course Name</th>
-										<th>Ranking</th>
-										<th>PhD</th>
-									</tr>
-								</thead>
-								{{#each coursesOffered}}
-								<tbody >
-									<tr>
-									<td>{{name}}</td>
-									<td>{{ranking}}</td>
-									<td>{{Phd}}</td>
-									</tr>
-									
-								</tbody>
-								{{/each}}
+									<thead >
+										<tr>
+											<th>Department Name</th>
+											<th>Ranking</th>
+											<th>GRE Score</th>
+										</tr>
+									</thead>
+									{{#each dept}}
+									<tbody >
+										<tr data-toggle="collapse" data-target="#{{num}}" class="accordion-toggle">
+											<td>{{name}}</td>
+											<td>{{ranking}}</td>
+											<td>{{greCutoff}}</td>
+										</tr>
+										<tr>
+											<div class="accordion-body collapse" id="{{num}}">
+												<table class="table table-hover" >
+													<thead >
+														<tr>
+															<th>Course Name</th>
+															<th>Phd Offered</th>
+														</tr>
+													</thead>
+													{{#each coursesOffered}}
+													<tbody>
+														<tr>
+															<td>{{name}}</td>
+															<td>{{Phd}}</td>
+														</tr>
+													</tbody>
+													{{/each}}
+												</table>
+											</div>
+										</tr>
+									</tbody>
+									{{/each}}
 								</table>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			{{/if}}
 
 		</div>
@@ -147,24 +160,24 @@
 			<br><br>
 			<div class="col-sm-12">
 				{{#if currentUser}}
-					{{> AddComment}}
+				{{> AddComment}}
 				{{else}}
-					<h2 class="text-center">You need to login in order to submit comment!</h2>
+				<h2 class="text-center">You need to login in order to submit comment!</h2>
 				{{/if}}
 			</div>
 			<div class="col-sm-12">
 				<ul class="list-group">
 					{{#each comments}}
-						{{> singleComment}}
+					{{> singleComment}}
 					{{/each}}
 				</ul>
 			</div>
 			<div class="loadMoreButton" style="padding-left: 10px;">
 				{{#if remain}}
-					<button class="btn btn-default" id="loadmore">Load More ({{remain}})</button>
+				<button class="btn btn-default" id="loadmore">Load More ({{remain}})</button>
 				{{/if}}
 			</div>
 		</div>
 	</div>
-	
+
 </template>
