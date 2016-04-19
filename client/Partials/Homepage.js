@@ -52,6 +52,20 @@ Template.AdvSearch.helpers({
 		//var list = Universities.distinct("country");
 		return distinctArray;
 	},
+	// departmentOpt: function(){
+	// 	//var myArray = Universities.find().fetch();
+	// 	var mArray = Universities.find({}, {'dept.category2':1, _id:0});
+	// 	// var distinctArray = _.uniq(myArray, false);
+	// 	// var myArray = Universities.find({}, {country:1}).fetch();
+	// 	// var distinctArray = _.uniq(myArray, false, function(d) {return d.dept.category1});
+	// 	// var distinctArray = _.uniq(myArray, false, function(d) {return d.country});
+	// 	// console.log(distinctArray);
+	// 	// console.log(myArray);
+	// 	// return distinctArray;
+	// 	// return distinctArray;
+	// 	return mArray;
+
+	// },
 });
 
 Template.AdvSearch.events({
@@ -77,7 +91,7 @@ Template.AdvSearch.rendered = function () {
 	var range2 = document.getElementById('sliderToefl');
 
 	noUiSlider.create(range1, {
-		start: [ 290, 320 ], // Handle start position
+		start: [ 280, 335 ], // Handle start position
 		step: 1, // Slider moves in increments of '1'
 		margin: 10, // Handles must be more than '10' apart
 		connect: true, // Display a colored bar between the handles
@@ -91,7 +105,7 @@ Template.AdvSearch.rendered = function () {
 	});
 
 	noUiSlider.create(range2, {
-		start: [ 85, 110 ], // Handle start position
+		start: [ 65, 115 ], // Handle start position
 		step: 1, // Slider moves in increments of '1'
 		margin: 5, // Handles must be more than '10' apart
 		connect: true, // Display a colored bar between the handles
