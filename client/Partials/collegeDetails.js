@@ -14,9 +14,9 @@ Template.collegeShow.helpers({
       };
     }
   },
-  'courses': function(){
+  'departments': function(){
 		var id = this._id;
-		if(Universities.findOne(id).coursesOffered){
+		if(Universities.findOne(id).dept){
 			return true;
 		}
 		return false;
@@ -28,8 +28,8 @@ Template.collegeShow.helpers({
 		for (var i = 0; i < obj.length; i++) {
 			if(obj[i] == user_id){
 				return true;
-			}	
-		};		
+			}
+		};
 		return false;
 	},
 	'like': function(){
@@ -39,8 +39,8 @@ Template.collegeShow.helpers({
 		for (var i = 0; i < obj.length; i++) {
 			if(obj[i] == user_id){
 				return true;
-			}	
-		};		
+			}
+		};
 		return false;
 	},
 	'likeCount': function(){
@@ -87,7 +87,7 @@ Template.collegeShow.events({
 	'click #loadmore': function() {
 		var limit = Session.get('limit');
 		Session.set('limit',limit*2);
-	}
+	},
 });
 
 Template.collegeShow.onCreated(function() {
@@ -108,5 +108,11 @@ Template.moreCollegeDetails.helpers({
 		Meteor.subscribe('universities');
 		var id = Session.get('selectedUni');
 		return Universities.findOne(id);
+	}
+});
+
+Template.moreCollegeDetails.events({
+	'click #view': function(){
+		Session.set('selectedUni', null);
 	}
 });

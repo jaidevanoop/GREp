@@ -19,7 +19,20 @@ Template.AdvSearch.helpers({
 		var test4 = parseInt(value4,10);
 		var exp1 = { $gte : test2 , $lte : test1};
 		var exp2 = { $gte : test4 , $lte : test3};
-		var exp = {greCutoff: exp1, toeflCutoff: exp2};
+
+		var options = Session.get("options");
+		if(options == undefined || options.length == 0)
+		{
+			var exp = {greCutoff: exp1, toeflCutoff: exp2};
+		}
+		else
+		{
+			var exp3 = { $in: options };
+			var exp = {greCutoff: exp1, toeflCutoff: exp2, country: exp3};
+		}
+		
+
+		// var exp = {greCutoff: exp1, toeflCutoff: exp2, country: exp3};
 		var list = Universities.find(exp, {sort:{greCutoff:-1,toeflCutoff:-1}});
 		return list;
 	},
@@ -27,13 +40,49 @@ Template.AdvSearch.helpers({
 		if(Session.get('selectedUni'))
 			return true;
 		return false;
-	}
+	},
+	countryOpt: function(){
+		var myArray = Universities.find().fetch();
+		var distinctArray = _.uniq(myArray, false, function(d) {return d.country});
+		// var distinctEntries = _.uniq(Universities.find({}, {
+    	// 	sort: {country: 1}, fields: {country: true}
+		// }).fetch().map(function(x) {
+    	// 	return x.country;
+		// }), true);
+		//var list = Universities.distinct("country");
+		return distinctArray;
+	},
+	// departmentOpt: function(){
+	// 	//var myArray = Universities.find().fetch();
+	// 	var mArray = Universities.find({}, {'dept.category2':1, _id:0});
+	// 	// var distinctArray = _.uniq(myArray, false);
+	// 	// var myArray = Universities.find({}, {country:1}).fetch();
+	// 	// var distinctArray = _.uniq(myArray, false, function(d) {return d.dept.category1});
+	// 	// var distinctArray = _.uniq(myArray, false, function(d) {return d.country});
+	// 	// console.log(distinctArray);
+	// 	// console.log(myArray);
+	// 	// return distinctArray;
+	// 	// return distinctArray;
+	// 	return mArray;
+
+	// },
 });
 
 Template.AdvSearch.events({
 	'click .uni': function() {
 		var uniID = this._id;
 		Session.set('selectedUni', uniID);
+	},
+	'click #inlineCheckbox1': function(e,t){
+		//e.preventDefault();
+
+		var selected = t.findAll( "input[type=checkbox]:checked");
+
+		var array = _.map(selected, function(item) {
+   			return item.defaultValue;
+		});
+
+		Session.set("options",array);
 	}
 });
 
@@ -42,7 +91,7 @@ Template.AdvSearch.rendered = function () {
 	var range2 = document.getElementById('sliderToefl');
 
 	noUiSlider.create(range1, {
-		start: [ 290, 320 ], // Handle start position
+		start: [ 280, 335 ], // Handle start position
 		step: 1, // Slider moves in increments of '1'
 		margin: 10, // Handles must be more than '10' apart
 		connect: true, // Display a colored bar between the handles
@@ -56,7 +105,7 @@ Template.AdvSearch.rendered = function () {
 	});
 
 	noUiSlider.create(range2, {
-		start: [ 85, 110 ], // Handle start position
+		start: [ 65, 115 ], // Handle start position
 		step: 1, // Slider moves in increments of '1'
 		margin: 5, // Handles must be more than '10' apart
 		connect: true, // Display a colored bar between the handles
