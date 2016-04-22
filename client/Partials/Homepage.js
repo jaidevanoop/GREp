@@ -108,7 +108,7 @@ Template.secondaryCheckbox.helpers({
 				if (_.findWhere(cat, d.category1) == null) {
 				    cat.push(d.category1);
 				}
-				if (_.findWhere(cat, d.category2) == null) {
+				if (d.category2 && _.findWhere(cat, d.category2) == null) {
 				    cat.push(d.category2);
 				}
 			};
