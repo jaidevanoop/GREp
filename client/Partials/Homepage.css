@@ -235,3 +235,29 @@ border-left: #eb5f3a 4px solid;
 	border-top-color: #454545;
 	background: #454545;
 }
+
+.bg-custom{
+	/*background-color: #9fd6f9;*/
+	text-align: left;
+    font: bold 16px sans-serif;
+    margin: 10px;
+    font-size: 30px;
+}
+
+/*.bg-custom > h1{
+	background-color: #9fd6f9;
+    font: bold 16px sans-serif;
+    margin: 10px;
+    font-size: 45px;
+}*/
+
+/*.bg-custom1 {
+    background-color: #9fd6f9;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+    margin-top: 80px;
+}
